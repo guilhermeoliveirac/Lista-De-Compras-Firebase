@@ -50,6 +50,8 @@ class _HomePageState extends State<HomePage> {
                 //Aqui esse código vai conseguir araastar os item de compras
                 key: Key(compras[index]),
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
                   child: ListTile(title: Text(compras[index])),
                 ));
           }),
@@ -60,6 +62,8 @@ class _HomePageState extends State<HomePage> {
             context: ctxt,
             builder: (BuildContext context) {
               return AlertDialog(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
                 title: Text('Adicione a Lista'),
                 content: TextField(
                     onChanged: (value) => {
