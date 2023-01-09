@@ -52,7 +52,18 @@ class _HomePageState extends State<HomePage> {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(title: Text(compras[index])),
+                  child: ListTile(
+                    title: Text(compras[index]),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      color: Colors.red,
+                      onPressed: () {
+                        setState(() {
+                          compras.removeAt(index);
+                        });
+                      },
+                    ),
+                  ),
                 ));
           }),
       floatingActionButton: FloatingActionButton(
