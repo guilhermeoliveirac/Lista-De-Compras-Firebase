@@ -21,12 +21,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<String> compras = [];
+
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+    compras.add('macarrão');
+    compras.add('Atum');
+    compras.add('colve');
+    compras.add('banana');
+  }
+
+  @override
+  Widget build(BuildContext ctxt) {
     return Scaffold(
+      //new
       appBar: AppBar(
-        title: Text('LISTA DE COMPRAS'),
+        // new
+        title: Text('LISTA DE COMPRAS'), //new
         centerTitle: true,
+      ),
+      body: new ListView.builder(
+        itemCount: compras.length,
+        //itemBuilder:(BuildContext (context, index) => Text(compras[index])),
+        itemBuilder: (BuildContext ctxt, index) {
+          return new Text(compras[index]);
+        },
       ),
     );
   }
