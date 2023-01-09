@@ -22,6 +22,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<String> compras = [];
+  String _input = "";
 
   @override
   void initState() {
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> {
       //new
       appBar: AppBar(
         // new
-        title: Text('LISTA DE COMPRAS'), //new
+        title: Text('LISTA DE COMPRAS'),
         centerTitle: true,
       ),
       body: ListView.builder(
@@ -55,6 +56,16 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('CLICOU');
+          showDialog(
+            context: ctxt,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Adicione a Lista'),
+                content: TextField(onChanged: (value) => {}),
+                actions: [FloatingActionButton(onPressed: (() {}))],
+              );
+            },
+          );
         },
         child: Icon(Icons.add),
       ),
