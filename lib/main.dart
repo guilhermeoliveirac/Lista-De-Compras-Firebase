@@ -41,13 +41,17 @@ class _HomePageState extends State<HomePage> {
         title: Text('LISTA DE COMPRAS'), //new
         centerTitle: true,
       ),
-      body: new ListView.builder(
-        itemCount: compras.length,
-        //itemBuilder:(BuildContext (context, index) => Text(compras[index])),
-        itemBuilder: (BuildContext ctxt, index) {
-          return new Text(compras[index]);
-        },
-      ),
+      body: ListView.builder(
+          itemCount: compras.length,
+          //itemBuilder:(BuildContext (context, index) => Text(compras[index])),
+          itemBuilder: (BuildContext ctxt, index) {
+            return Dismissible(
+                //Aqui esse código vai conseguir araastar os item de compras
+                key: Key(compras[index]),
+                child: Card(
+                  child: ListTile(title: Text(compras[index])),
+                ));
+          }),
     );
   }
 }
