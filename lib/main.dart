@@ -52,6 +52,12 @@ class _HomePageState extends State<HomePage> {
                   child: ListTile(title: Text(compras[index])),
                 ));
           }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('CLICOU');
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
