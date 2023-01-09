@@ -61,8 +61,20 @@ class _HomePageState extends State<HomePage> {
             builder: (BuildContext context) {
               return AlertDialog(
                 title: Text('Adicione a Lista'),
-                content: TextField(onChanged: (value) => {}),
-                actions: [FloatingActionButton(onPressed: (() {}))],
+                content: TextField(
+                    onChanged: (value) => {
+                          _input = value,
+                        }),
+                actions: [
+                  FloatingActionButton(
+                    onPressed: (() {
+                      setState(() {
+                        compras.add(_input);
+                      });
+                      Navigator.of(ctxt).pop();
+                    }),
+                  ),
+                ],
               );
             },
           );
